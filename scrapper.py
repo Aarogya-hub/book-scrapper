@@ -1,3 +1,5 @@
+import csv
+import json
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
@@ -60,11 +62,11 @@ def scrape_book(url):
     print("all all books are scrapped.")
     return book
 def save_to_json(book):
-    import json
+    
     with open('book.json','w',encoding='utf-8')as f:
         json.dump(book,f,indent=2,ensure_ascii=False)
 def save_to_csv(book):
-    import csv
+    
     with open('books.csv','w',newline="",encoding="utf=8")as f:
         writer=csv.DictWriter(f,fieldnames=['title','currency','price'])
         writer.writeheader()
